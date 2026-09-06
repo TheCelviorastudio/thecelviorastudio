@@ -21,12 +21,12 @@ export function Hero() {
           className="mt-6 max-w-5xl font-display text-display-xl font-bold text-balance"
           delay={0.35}
         >
-          Sweet little things for your ears & your desk
+          Little boxes of happiness, packed with love
         </SplitHeading>
         <AnimatedContainer animation="fadeUp" delay={0.9} className="mt-6 max-w-xl">
           <p className="text-lg text-ink-soft sm:text-xl">
-            Curated scoops of pastel jewelry and stationery. Small batches, gentle paper,
-            skin-friendly sparkle.
+            Curated scoops of jewellery, hair accessories and stationery in one gift-ready
+            box. Small things, brighter days.
           </p>
         </AnimatedContainer>
         <AnimatedContainer

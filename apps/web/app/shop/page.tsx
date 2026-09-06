@@ -8,7 +8,7 @@ import { isCategorySlug, isSortKey } from "@/lib/commerce/filters";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Every jewelry and stationery scoop currently in stock.",
+  description: "Every gift box we currently pack, from the Mini Scoop to the Grand Scoop.",
 };
 
 export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
@@ -31,7 +31,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         title={current ? current.name : "The whole scoop"}
         description={
           current?.description ??
-          "Everything we've curated, in one place. Filter by what you're in the mood for."
+          "Four sizes of the same idea: jewellery, hair accessories and stationery, packed with love."
         }
       />
       <ShopToolbar

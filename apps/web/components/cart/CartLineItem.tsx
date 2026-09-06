@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import Link from "next/link";
-import { ProductArt } from "@/components/art/ProductArt";
+import { ProductPhoto } from "@/components/product/ProductPhoto";
 import { QuantityStepper } from "@/components/product/QuantityStepper";
 import type { CartLine } from "@/lib/commerce/types";
 import { formatPrice } from "@/lib/format";
@@ -35,7 +35,13 @@ export function CartLineItem({
           className={compact ? "size-20 shrink-0" : "size-24 shrink-0"}
           aria-label={line.name}
         >
-          <ProductArt art={line.art} sprinkles={false} className="rounded-md" />
+          <ProductPhoto
+            src={line.image}
+            alt={line.name}
+            art={line.art}
+            sizes="96px"
+            className="rounded-md outline-ink"
+          />
         </Link>
         <div className="flex min-w-0 flex-1 flex-col gap-1">
           <div className="flex items-start justify-between gap-2">

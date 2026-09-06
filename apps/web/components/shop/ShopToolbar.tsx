@@ -12,10 +12,14 @@ export interface ShopToolbarProps {
 export function ShopToolbar({ categories, category, sort, count }: ShopToolbarProps) {
   return (
     <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <CategoryChips categories={categories} active={category} sort={sort} />
+      {categories.length > 1 ? (
+        <CategoryChips categories={categories} active={category} sort={sort} />
+      ) : (
+        <span aria-hidden />
+      )}
       <div className="flex items-center justify-between gap-4">
         <p className="text-sm text-ink-soft" aria-live="polite">
-          {count} {count === 1 ? "piece" : "pieces"}
+          {count} {count === 1 ? "box" : "boxes"}
         </p>
         <SortSelect value={sort} category={category} />
       </div>

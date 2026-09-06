@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductArt } from "@/components/art/ProductArt";
+import { ProductPhoto } from "@/components/product/ProductPhoto";
 import type { CartLine } from "@/lib/commerce/types";
 import { SHIPPING, shippingCost, type ShippingMethod } from "@/lib/config";
 import { formatPrice } from "@/lib/format";
@@ -25,7 +25,13 @@ export function OrderSummaryCard({
             className="flex items-center gap-3"
           >
             <div className="relative size-14 shrink-0">
-              <ProductArt art={l.art} sprinkles={false} className="rounded-sm bg-white" />
+              <ProductPhoto
+                src={l.image}
+                alt={l.name}
+                art={l.art}
+                sizes="56px"
+                className="rounded-sm outline-ink"
+              />
               <span className="absolute -top-1.5 -right-1.5 inline-flex size-5 items-center justify-center rounded-full bg-pink font-display text-[10px] font-bold outline-ink">
                 {l.qty}
               </span>

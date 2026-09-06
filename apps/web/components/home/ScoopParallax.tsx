@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { buttonStyles } from "@repo/ui/button";
-import { ProductArt } from "@/components/art/ProductArt";
 import { PressLink } from "@/components/motion/PressLink";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
+import { ProductPhoto } from "@/components/product/ProductPhoto";
 import { Container } from "@/components/ui/Container";
 import type { Product } from "@/lib/commerce/types";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
@@ -85,10 +85,15 @@ export function ScoopParallax({ products }: { products: Product[] }) {
                 .filter(Boolean)
                 .join(" ")}
             >
-              <ProductArt
+              <ProductPhoto
+                src={p.images[0]?.src}
+                alt={p.images[0]?.alt ?? p.name}
                 art={p.art}
-                view={i === 2 ? 2 : 0}
-                className="drop-shadow-[0_6px_0_rgba(43,33,64,0.9)]"
+                sizes="(min-width: 1024px) 20vw, 40vw"
+                className={[
+                  "rounded-xl shadow-sticker-lg outline-ink",
+                  ["-rotate-3", "rotate-2", "-rotate-1"][i],
+                ].join(" ")}
               />
             </div>
           ))}

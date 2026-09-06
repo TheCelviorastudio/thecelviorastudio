@@ -1,6 +1,6 @@
 import type { ShippingMethod } from "@/lib/config";
 
-export type CategorySlug = "jewelry" | "stationery";
+export type CategorySlug = "gift-boxes";
 
 export type Palette = "lavender" | "butter" | "pink" | "mint" | "sky";
 
@@ -22,6 +22,14 @@ export interface ProductArt {
   palette: Palette;
   shape: Shape;
   seed: number;
+}
+
+/** A real product photo served from `/public`. */
+export interface ProductImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
 export type ProductBadge = "new" | "bestseller" | "limited" | "sale";
@@ -48,6 +56,9 @@ export interface Product {
   compareAtPrice?: number;
   tags: string[];
   badges?: ProductBadge[];
+  /** Photos, first one is the hero. */
+  images: ProductImage[];
+  /** Palette/shape used for placeholders, badges and anywhere a photo can't go. */
   art: ProductArt;
   variant?: ProductVariant;
   details: ProductDetail[];
@@ -81,6 +92,8 @@ export interface CartLine {
   price: number;
   qty: number;
   art: ProductArt;
+  /** Hero photo src. Optional so carts persisted before photos existed still load. */
+  image?: string;
   variant?: string;
 }
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { buttonStyles } from "@repo/ui/button";
 import { ProductArt } from "@/components/art/ProductArt";
+import { ProductPhoto } from "@/components/product/ProductPhoto";
 import { StickerBadge } from "@/components/art/StickerBadge";
 import { PressLink } from "@/components/motion/PressLink";
 import { SHIPPING } from "@/lib/config";
@@ -117,7 +118,13 @@ export function OrderConfirmation({ id }: { id: string }) {
               className="flex items-center gap-4 py-3"
             >
               <div className="size-14 shrink-0">
-                <ProductArt art={l.art} sprinkles={false} className="rounded-sm" />
+                <ProductPhoto
+                  src={l.image}
+                  alt={l.name}
+                  art={l.art}
+                  sizes="56px"
+                  className="rounded-sm outline-ink"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="font-display font-bold">{l.name}</p>

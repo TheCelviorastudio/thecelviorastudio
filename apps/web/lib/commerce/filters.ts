@@ -1,4 +1,4 @@
-import type { Product, ProductQuery, SortKey } from "./types";
+import type { CategorySlug, Product, ProductQuery, SortKey } from "./types";
 
 export const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "featured", label: "Featured" },
@@ -11,8 +11,8 @@ export function isSortKey(value: unknown): value is SortKey {
   return SORT_OPTIONS.some((o) => o.value === value);
 }
 
-export function isCategorySlug(value: unknown): value is "jewelry" | "stationery" {
-  return value === "jewelry" || value === "stationery";
+export function isCategorySlug(value: unknown): value is CategorySlug {
+  return value === "gift-boxes";
 }
 
 const sorters: Record<SortKey, (a: Product, b: Product) => number> = {

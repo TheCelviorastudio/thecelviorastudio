@@ -74,8 +74,6 @@ function FooterColumn({
   links: readonly {
     href:
       | "/shop"
-      | "/shop?category=jewelry"
-      | "/shop?category=stationery"
       | "/shop?sort=newest"
       | "/about"
       | "/contact"

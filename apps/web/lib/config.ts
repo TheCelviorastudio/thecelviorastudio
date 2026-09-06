@@ -1,9 +1,9 @@
 export const SITE = {
   name: "thecelviorastudio",
   shortName: "celviora",
-  tagline: "curated scoops of aesthetic jewelry & stationery",
+  tagline: "curated scoops of jewellery, hair accessories & stationery",
   description:
-    "thecelviorastudio hand-picks playful, pastel jewelry and stationery pieces in small curated scoops. Sweet little things for your ears, wrists, and desk.",
+    "thecelviorastudio packs playful, pastel jewellery, hair accessories and stationery into small curated gift boxes. Sweet little things for your ears, hair, wrists and desk.",
   url: "https://thecelviorastudio.com",
   email: "hello@thecelviorastudio.com",
   instagram: "https://instagram.com/thecelviorastudio",
@@ -53,17 +53,15 @@ export function shippingCost(method: ShippingMethod, subtotal: number): number {
 
 export const NAV_LINKS = [
   { href: "/shop", label: "Shop" },
-  { href: "/shop?category=jewelry", label: "Jewelry" },
-  { href: "/shop?category=stationery", label: "Stationery" },
+  { href: "/shop?sort=newest", label: "New in" },
   { href: "/about", label: "Our story" },
 ] as const;
 
 export const FOOTER_LINKS = {
   shop: [
     { href: "/shop", label: "All scoops" },
-    { href: "/shop?category=jewelry", label: "Jewelry" },
-    { href: "/shop?category=stationery", label: "Stationery" },
     { href: "/shop?sort=newest", label: "New arrivals" },
+    { href: "/faq", label: "What's in a box?" },
   ],
   studio: [
     { href: "/about", label: "Our story" },

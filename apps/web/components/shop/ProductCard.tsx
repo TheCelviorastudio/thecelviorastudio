@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ProductArt } from "@/components/art/ProductArt";
 import { StickerBadge } from "@/components/art/StickerBadge";
 import { AddToCartButton } from "@/components/product/AddToCartButton";
+import { ProductPhoto } from "@/components/product/ProductPhoto";
 import { PriceTag } from "@/components/ui/PriceTag";
 import type { Product, ProductBadge } from "@/lib/commerce/types";
 import { spring } from "@/lib/transitions";
@@ -32,12 +32,15 @@ export function ProductCard({ product }: { product: Product }) {
           <motion.div
             variants={{
               rest: { rotate: 0, scale: 1 },
-              hover: { rotate: -3, scale: 1.06 },
+              hover: { rotate: -1.5, scale: 1.05 },
             }}
             transition={spring.bouncy}
-            className="p-3"
           >
-            <ProductArt art={product.art} title={product.name} />
+            <ProductPhoto
+              src={product.images[0]?.src}
+              alt={product.images[0]?.alt ?? product.name}
+              art={product.art}
+            />
           </motion.div>
           {badge ? (
             <div className="absolute top-3 left-3">

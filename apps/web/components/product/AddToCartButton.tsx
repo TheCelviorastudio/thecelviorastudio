@@ -64,6 +64,7 @@ export function AddToCartButton({
           price: product.price,
           qty,
           art: product.art,
+          image: product.images[0]?.src,
           variant,
         });
         setPhase("added");

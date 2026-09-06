@@ -21,7 +21,7 @@ export const milestones: Milestone[] = [
   {
     year: "2025",
     title: "Stationery joins the party",
-    body: "Notebooks and pens felt like the natural friends of tiny jewelry. Turns out our customers agreed. The Dot Grid Dream notebook is still our best seller.",
+    body: "Sticky notes and hair clips felt like the natural friends of tiny jewellery. Turns out our customers agreed. The box got bigger, then bigger again.",
     palette: "lavender",
   },
   {

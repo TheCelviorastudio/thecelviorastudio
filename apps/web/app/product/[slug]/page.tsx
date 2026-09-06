@@ -24,7 +24,16 @@ export async function generateMetadata({
   return {
     title: product.name,
     description: `${product.tagline}. ${product.description}`,
-    openGraph: { title: product.name, description: product.tagline },
+    openGraph: {
+      title: product.name,
+      description: product.tagline,
+      images: product.images.map((i) => ({
+        url: i.src,
+        alt: i.alt,
+        width: i.width,
+        height: i.height,
+      })),
+    },
   };
 }
 
@@ -45,6 +54,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
     name: product.name,
     description: product.description,
     sku: product.id,
+    image: product.images.map((i) => `${SITE.url}${i.src}`),
     brand: { "@type": "Brand", name: SITE.name },
     offers: {
       "@type": "Offer",
@@ -64,14 +74,14 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Link
-        href={`/shop?category=${product.category}`}
+        href="/shop"
         className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-ink-soft underline-offset-4 hover:underline"
       >
         <ChevronLeft className="size-4" aria-hidden />
-        Back to {product.category}
+        Back to all scoops
       </Link>
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <ProductGallery art={product.art} name={product.name} />
+        <ProductGallery images={product.images} art={product.art} name={product.name} />
         <div className="lg:sticky lg:top-24 lg:self-start">
           <ProductInfo product={product} />
         </div>
@@ -81,7 +91,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
           <SectionHeading
             eyebrow="goes well with"
             eyebrowPalette="lavender"
-            title="More from this scoop"
+            title="Other scoop sizes"
           />
           <ProductGrid products={related} />
         </section>

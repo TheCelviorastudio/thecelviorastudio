@@ -12,11 +12,11 @@ import { CartButton } from "./CartButton";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
 
-function isActive(href: string, pathname: string, category: string | null) {
+function isActive(href: string, pathname: string, search: string) {
   const [path, query] = href.split("?");
   if (path !== pathname) return false;
-  if (!query) return !category || path !== "/shop";
-  return query === `category=${category}`;
+  if (!query) return !search || path !== "/shop";
+  return query === search;
 }
 
 export function Header() {
@@ -28,7 +28,7 @@ export function Header() {
   );
   const border = useTransform(scrollY, [0, 60], ["rgba(43,33,64,0)", "rgba(43,33,64,1)"]);
   const pathname = usePathname();
-  const category = useSearchParams().get("category");
+  const search = useSearchParams().toString();
   const menuOpen = useUiStore((s) => s.menuOpen);
   const toggleMenu = useUiStore((s) => s.toggleMenu);
 
@@ -43,7 +43,7 @@ export function Header() {
           <LayoutGroup id="nav">
             <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
               {NAV_LINKS.map((l) => {
-                const active = isActive(l.href, pathname, category);
+                const active = isActive(l.href, pathname, search);
                 return (
                   <Link
                     key={l.href}

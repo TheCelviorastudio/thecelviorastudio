@@ -1,27 +1,31 @@
-import { type JSX } from "react";
+import type { HTMLAttributes } from "react";
+import { cn } from "./cn";
 
-export function Card({
-  className,
-  title,
-  children,
-  href,
-}: {
-  className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
-}): JSX.Element {
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  tone?: "white" | "cream" | "butter" | "pink" | "lavender" | "mint" | "sky";
+  lift?: boolean;
+}
+
+const tones = {
+  white: "bg-white",
+  cream: "bg-cream-deep",
+  butter: "bg-butter",
+  pink: "bg-pink",
+  lavender: "bg-lavender",
+  mint: "bg-mint",
+  sky: "bg-sky",
+} as const;
+
+export function Card({ tone = "white", lift = false, className, ...rest }: CardProps) {
   return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
+    <div
+      className={cn(
+        "sticker-lg p-6",
+        tones[tone],
+        lift && "shadow-sticker-xl",
+        className,
+      )}
+      {...rest}
+    />
   );
 }

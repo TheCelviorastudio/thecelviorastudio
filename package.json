@@ -1,15 +1,18 @@
 {
-  "name": "website",
+  "name": "thecelviorastudio",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,css,json,js,mjs}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,css,json,js,mjs}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "prettier": "3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "4.3.3",
     "turbo": "^2.10.12",
     "typescript": "7.0.2"
   },
